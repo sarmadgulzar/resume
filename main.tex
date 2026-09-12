@@ -1,0 +1,194 @@
+%-------------------------
+% Resume in LaTeX
+% Adapted for Sarmad Gulzar
+% Based on Jake Gutierrez / sb2nov resume style
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+\input{particulars}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\ifdefined\pdfgentounicode
+  \input{glyphtounicode}
+\fi
+
+%----------FONT OPTIONS----------
+% Uncomment one if desired:
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[default]{sourcesanspro}
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\setlength{\footskip}{12pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.55in}
+\addtolength{\textheight}{1.1in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-2pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
+
+% ATS-friendly PDF output
+\ifdefined\pdfgentounicode
+  \pdfgentounicode=1
+\fi
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item{{#1 \vspace{0pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{#2} \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & \textbf{#2}\\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.16in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
+
+\newcommand{\renderExp}[1]{
+\resumeSubheading
+      {\csname #1@Company\endcsname}{\csname #1@Start\endcsname -- \csname #1@End\endcsname}
+      {\csname #1@Designation\endcsname}{\csname #1@Location\endcsname}
+      \csname #1@Highlights\endcsname
+}
+
+\newcommand{\renderProject}[1]{
+    \resumeSubheading
+      {\csname #1@Company\endcsname}
+      {\csname #1@Start\endcsname -- \csname #1@End\endcsname}
+      {\csname #1@Position\endcsname}
+      {\csname #1@Location\endcsname}
+    \csname #1@Highlights\endcsname
+}
+
+\def\titlesection{
+\begin{center}
+    {\Huge \scshape \firstname\ \lastname} \\ \vspace{2pt}
+    \small
+    \location\ $|$
+    \raisebox{-0.1\height}\faPhone\ \phone\ $|$
+    \href{mailto:\email}{\raisebox{-0.2\height}\faEnvelope\ \underline{\email}} \\ \vspace{2pt}
+    \href{https://\linkedin}{\raisebox{-0.2\height}\faLinkedin\ \underline{\linkedin}} $|$
+    \href{https://\github}{\raisebox{-0.2\height}\faGithub\ \underline{\github}} $|$
+    \href{https://\website}{\raisebox{-0.2\height}\faGlobe\ \underline{\website}}
+    \vspace{-8pt}
+\end{center}
+}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\titlesection
+\profileSummary
+
+%-----------SKILLS-----------
+\section{Core Skills}
+\begin{multicols}{2}
+    \resumeSubHeadingListStart
+        \item{\textbf{Backend:} Python, FastAPI, Django, Django REST Framework, REST APIs, Microservices}
+        \item{\textbf{Rust:} Rust, Axum, Async Rust, API Services}
+        \item{\textbf{Databases:} PostgreSQL, SQL, Schema Design, Migrations, Indexing, Query Optimization}
+    \resumeSubHeadingListEnd
+\columnbreak
+    \resumeSubHeadingListStart
+        \item{\textbf{AI/Automation:} Claude API, LLM APIs, AI Agents, MCP, Structured LLM Workflows, Third-Party APIs, Web Scraping}
+        \item{\textbf{Async/Caching:} Celery, Redis, Docker, Linux, Background Processing, Scheduled Jobs}
+        \item{\textbf{Cloud/DevOps:} Docker, Linux, VPS deployments, AWS EC2/S3, GCP Cloud Run}
+    \resumeSubHeadingListEnd
+\end{multicols}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+    \vspace{5pt}
+    \resumeSubHeadingListStart
+        \renderExp{TripTap}
+        \vspace{5pt}
+        \renderExp{FielderWork}
+    \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Claude Certified Developer -- Foundations (CCDV-F)} $|$ Anthropic}
+      {2026}
+      \resumeItemListStart
+        \resumeItem{Validates practical skills in building and shipping production Claude applications, agents, and workflows using the Claude API, Claude Code, and MCP, including prompt and context engineering, evaluation, security, and model/cost optimization.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------FREELANCE AND CONSULTING-----------
+\section{Freelance \& Consulting}
+    \vspace{5pt}
+    \resumeSubHeadingListStart
+        \renderExp{Toptal}
+        \vspace{5pt}
+        \renderExp{Upwork}
+    \resumeSubHeadingListEnd
+
+%-----------PROJECTS AND OPEN SOURCE-----------
+\section{Selected Projects \& Open Source}
+    \vspace{5pt}
+    \resumeSubHeadingListStart
+        \renderProject{ZedGuild}
+        % \vspace{5pt}
+        % \renderProject{RustBackend}
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+      \resumeSubheading{\csname College@School\endcsname}
+      {\csname College@Start\endcsname -- \csname College@End\endcsname}
+      {\csname College@Course\endcsname, \csname College@Stream\endcsname}{ }
+  \resumeSubHeadingListEnd
+
+\end{document}
